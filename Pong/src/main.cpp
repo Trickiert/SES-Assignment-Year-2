@@ -101,11 +101,13 @@ int main()
 	/* Initialise the display */
 d->fillScreen(WHITE);
 d->setTextColor(BLACK, WHITE);	
-//d->setCursor(2, 2);
-d->drawRect(109, 12, 102, 10, BLACK); //TBC
-//d->drawRect(109, 12, 102, 10, BLACK); //TBC
+
+//Playing Field
+d->drawRect(2, 14, 476, 256, BLACK);
 	
-	
+//Paddle
+
+//Ball	
 	
 // initialiseDevices(); //Devices TBA, (buttons, LCD, accelerometer)
 	
@@ -113,7 +115,7 @@ d->drawRect(109, 12, 102, 10, BLACK); //TBC
 d->printf("Total Score: %l"); //Calls from incScore. Will use a long Integer.
 //Location On Screen Settings
 
-d->printf("                                                 Balls Left: %i");	//Calls from remainingBalls (remainingBalls = ball -1)
+d->printf("                                               Balls Left: %i");	//Calls from remainingBalls (remainingBalls = ball -1)
 //Location On Screen Settings
 	
 
