@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <mbed.h>
 #include <display.h>
+#include <MMA7455.h>
 
 /*
 *********************************************************************************************************
@@ -85,6 +86,19 @@ JoyID_t;
 
 Display *d = Display::theDisplay(); //Returns a pointer to an object that manages the display screen
 
+static void initialiseDevices() //Devices are initalised here and then called in main.
+{
+static DigitalOut led1(P1_18); //LED 1 Pin
+static DigitalOut led2(P0_13); //LED 2 Pin
+	
+	static DigitalIn buttons[] = {P5_4, P5_0, P5_2, P5_1, P5_3}; // LEFT, RIGHT, UP, DOWN, CENTER
+	static AnalogIn potentiometer(P0_23); //Pot Pins
+	
+	MMA7455 acc(P0_27, P0_28); //Acc pins
+	bool accInit(MMA7455& acc); //prototype of init routine
+}
+
+
 /*
 *********************************************************************************************************
 *                                            GLOBAL FUNCTION DEFINITIONS
@@ -109,13 +123,14 @@ d->drawRect(2, 14, 476, 256, BLACK);
 
 //Ball	
 	
-// initialiseDevices(); //Devices TBA, (buttons, LCD, accelerometer)
+initialiseDevices(); //Devices TBA, (buttons, LCD, accelerometer)
 	
-
-d->printf("Total Score: %l"); //Calls from incScore. Will use a long Integer.
+int totalScore = 0;
+d->printf("Total Score: %i", totalScore); //Calls from incScore.
 //Location On Screen Settings
 
-d->printf("                                               Balls Left: %i");	//Calls from remainingBalls (remainingBalls = ball -1)
+int remainingBalls = 5;
+d->printf("                                               Balls Left: %i", remainingBalls);	//Calls from remainingBalls (remainingBalls = ball -1)
 //Location On Screen Settings
 	
 
