@@ -1,3 +1,4 @@
 # SES-Assignment-Year-2
-Pong
+# Coded by Cameron + George
+Second Year: Pong Project
 Made public Febuary 2017, For referance only.
